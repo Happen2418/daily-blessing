@@ -1,0 +1,27 @@
+name: Daily Blessing
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  send-blessing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run script
+        env:
+          MIMO_KEY: ${{ secrets.MIMO_KEY }}
+          QQ_EMAIL: ${{ secrets.QQ_EMAIL }}
+          AUTH_CODE: ${{ secrets.AUTH_CODE }}
+        run: python daily_blessing.py
