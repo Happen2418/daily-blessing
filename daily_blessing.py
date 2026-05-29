@@ -18,7 +18,7 @@ response = requests.post(
         "messages": [
             {
                 "role": "user",
-                "content": "给女友一个早安祝福，并推荐给她中午吃什么减脂餐"
+                "content": "给女友一个早安祝福，并推荐给她中午吃什么减脂餐，最后署名亲爱的小华华"
             }
         ],
         "max_completion_tokens": 256,
